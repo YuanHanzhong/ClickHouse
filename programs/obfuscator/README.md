@@ -102,7 +102,7 @@ I don't want to make it sound like this problem was particularly important. It w
 ### Explicit probabilistic models
 
 - We want to preserve the continuity of time series data. This means that for some types of data, we need to model the difference between neighboring values rather than the value itself.
-- To model "joint cardinality" of columns, we would also have to explicitly reflect dependencies between columns. For instance, there are usually very few IP addresses per user ID, so to generate an IP address, we would have to use a hash value of the user ID as a seed and add a small amount of other pseudorandom data.
+- To model "joint cardinality" of columns, we would also have to explicitly reflect dependencies between columns. For instance, there are usually very few IP addresses per user ID, so to generate an IP address, we would have to use a hash value of the user ID as a seed and add a small amount of other pseudrondom data.
 - We weren't sure how to express the dependency that the same user frequently visits URLs with matching domains at approximately the same time.
 
 All this can be written in a C++ "script" with the distributions and dependencies hard coded. However, Markov models are obtained from a combination of statistics with smoothing and adding noise. I started writing a script like this, but after writing explicit models for ten columns, it became unbearably boring — and the "hits" table in the web analytics product had more than 100 columns way back in 2012.
